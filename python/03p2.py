@@ -8,14 +8,13 @@ ry=0
 total = 2
 
 houses = set()
-houses.add( (sx,sy) )
-houses.add( (rx,ry) )
+houses.add( (0,0) ) # starting point
 
 with open("../input/03.txt") as fileobj:
 	for word in fileobj:  
 		for ch in word:
 			total+=1
-			if total % 2 == 0:
+			if total % 2 == 0:	# santa
 				if ch == '^':
 					sx+=1
 				if ch == 'v':
@@ -25,7 +24,7 @@ with open("../input/03.txt") as fileobj:
 				if ch == '>':
 					sy+=1
 				houses.add( (sx,sy) )
-			else:
+			else:				# robo-santa
 				if ch == '^':
 					rx+=1
 				if ch == 'v':
