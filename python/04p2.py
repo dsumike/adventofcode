@@ -2,12 +2,14 @@
 
 import md5
 
-i = 1
-
 with open("../input/04.txt") as fileobj:
-	for word in fileobj:  
+	for word in fileobj:
+		i = 1
+		base = md5.new(word.rstrip())
 		while True:
-			if md5.new("{}{}".format(word.rstrip(),i)).hexdigest()[:6] == '000000':
+			m = base.copy()	# according to the interwebs, this is more efficient than .new()
+			m.update(str(i))
+			if m.hexdigest()[:6] == '000000':
 				print word,i
 				break
 			i+=1
