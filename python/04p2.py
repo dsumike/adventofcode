@@ -11,3 +11,4 @@ with open("../input/04.txt") as fileobj:
 				print word,i
 				break
 			i+=1
+
