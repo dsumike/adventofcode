@@ -47,11 +47,9 @@ def rule3(password):
 	return pair >1
 
 def increment(password):
-	try:
-		return password[0:-1] + letters[letters.index(password[-1]) + 1]
-	except IndexError:
+	if password[-1] == 'z':
 		return increment(password[0:-1]) + 'a'
-
+	return password[0:-1] + letters[letters.index(password[-1]) + 1]
 
 #print rules(password)
 #password = increment(password)
